@@ -156,7 +156,7 @@ export default async function TrainerDetailPage({
                 .map((paragraph) => paragraph.trim())
                 .filter(Boolean)
                 .map((paragraph, index) => (
-                  <p key={index} className="text-lg leading-relaxed text-ink/80">
+                  <p key={index} className="text-lg leading-relaxed text-white/80">
                     {paragraph}
                   </p>
                 ))}

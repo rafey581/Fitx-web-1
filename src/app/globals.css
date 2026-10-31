@@ -334,8 +334,8 @@ body {
 /* --- Type flourishes ------------------------------------------------------ */
 
 .stat-value {
-  font-family: var(--brand-font-heading);
-  font-weight: 900;
+  font-family: var(--font-display), var(--brand-font-heading);
+  font-weight: 800;
   font-size: clamp(2.5rem, 6vw, 3.75rem);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -870,6 +870,13 @@ html.lenis body {
   margin-top: clamp(3rem, 6vw, 5rem);
 }
 
+/* CMS dark bands (stats, testimonials) sit as inset rounded panels like the rest of the site. */
+.site main section.bg-arena {
+  margin: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
 /* CMS pages render their first section as the page hero. */
 .site main > :first-child > section:first-child:not(.bg-ink) {
   position: relative;
@@ -884,8 +891,22 @@ html.lenis body {
   --brand-line: rgb(255 255 255 / 0.12);
 }
 
-.site main > :first-child > section:first-child:not(.bg-ink) .text-ink {
+.site main > :first-child > section:first-child:not(.bg-ink) .text-ink,
+.site .page-hero .text-ink,
+.on-dark .text-ink,
+.site section.bg-ink .text-ink {
   color: #fff !important;
+}
+
+.site .page-hero .text-ink\/80,
+.on-dark .text-ink\/80 {
+  color: rgb(255 255 255 / 0.8) !important;
+}
+
+.site .page-hero .chip {
+  border-color: rgb(255 255 255 / 0.18);
+  background: rgb(255 255 255 / 0.08);
+  color: #fff;
 }
 
 .site main section.bg-ink:first-child,

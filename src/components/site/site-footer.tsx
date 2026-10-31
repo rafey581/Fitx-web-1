@@ -74,7 +74,7 @@ export async function SiteFooter() {
   ].filter(([, value]) => value) as Array<[string, string]>;
 
   return (
-    <footer className="site-footer mt-24">
+    <footer className="site-footer mt-16">
       <div className="mx-auto w-full max-w-7xl px-5 pt-20 pb-10 sm:px-10">
         <p className="tag">Your move</p>
         <Link href="/contact" className="group mt-6 block">

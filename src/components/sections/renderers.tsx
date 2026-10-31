@@ -939,7 +939,7 @@ async function PlansGrid({
               <h3 className="heading-display relative text-xl">{plan.name}</h3>
               <p className="relative mt-4">
                 <span
-                  className={`font-heading text-4xl font-extrabold ${
+                  className={`display text-5xl ${
                     plan.isHighlighted ? "text-white" : "text-gradient"
                   }`}
                 >
@@ -1225,7 +1225,7 @@ async function CtaBanner({
   const href = safeHref(pickStr(content, "ctaHref"));
   return (
     <SectionShell style={style} contain={false} className="p-0">
-      <div className="relative overflow-hidden py-24 sm:py-32">
+      <div className="relative mx-2.5 overflow-hidden rounded-[28px] py-24 sm:py-32">
         <div aria-hidden="true" className="bg-arena absolute inset-0" />
         {image ? (
           // eslint-disable-next-line @next/next/no-img-element
