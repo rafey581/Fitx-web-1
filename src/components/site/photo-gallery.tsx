@@ -60,7 +60,7 @@ export function PhotoGallery({ photos }: { photos: GalleryPhoto[] }) {
             className={`rounded-full border px-4 py-2 text-sm transition ${
               filter === tab.id
                 ? "border-accent bg-accent text-white"
-                : "border-white/20 text-white/75 hover:border-accent hover:text-white"
+                : "border-black/15 text-ink/75 hover:border-accent hover:text-ink"
             }`}
           >
             {tab.label} <span className="opacity-60">{tab.count}</span>
@@ -78,7 +78,7 @@ export function PhotoGallery({ photos }: { photos: GalleryPhoto[] }) {
                 lastTrigger.current = e.currentTarget;
                 setOpen(i);
               }}
-              className="group relative block w-full overflow-hidden rounded-brand border border-white/10 bg-white/5 transition hover:border-accent"
+              className="group relative block w-full overflow-hidden rounded-brand border border-black/10 bg-black/5 transition hover:border-accent"
               aria-label={`Open photo: ${photo.alt}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

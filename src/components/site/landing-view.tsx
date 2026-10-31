@@ -28,7 +28,7 @@ export function LandingView({ page }: { page: LandingPage }) {
         }}
       />
 
-      <section className="flex min-h-[60svh] items-end pt-36 pb-12">
+      <section className="page-hero flex min-h-[60svh] items-end pt-36 pb-12">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-10">
           <p className="eyebrow eyebrow-bar">{page.eyebrow}</p>
           <h1 className="film-display mt-5 max-w-4xl type-title">{page.h1}</h1>
@@ -158,7 +158,7 @@ export function LandingView({ page }: { page: LandingPage }) {
         {answers.length ? (
           <section className="max-w-3xl">
             <h2 className="heading-display text-2xl text-ink sm:text-3xl">Questions</h2>
-            <div className="mt-6 divide-y divide-white/10 border-y border-white/10">
+            <div className="mt-6 divide-y divide-black/10 border-y border-black/10">
               {answers.map((f) => (
                 <details key={f.id} className="group py-4">
                   <summary className="cursor-pointer list-none text-lg text-ink marker:hidden">

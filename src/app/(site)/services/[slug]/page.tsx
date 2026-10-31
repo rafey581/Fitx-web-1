@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({
 
   return (
     <main>
-      <section className="relative flex min-h-[78svh] items-end pt-36 pb-14">
+      <section className="page-hero flex min-h-[78svh] items-end pt-36 pb-14">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-10">
           <Link href="/services" className="film-mono block w-fit text-[11px] text-white/50 transition hover:text-accent">
             ← All programs
@@ -124,7 +124,7 @@ export default async function ServiceDetailPage({
 
       {contentParagraphs.length > 0 ? (
         <section className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-24 sm:px-10 md:grid-cols-[1fr_2fr]">
-          <p className="film-mono text-[11px] text-white/50">
+          <p className="film-mono text-[11px] text-muted">
             <span className="text-accent">[ 01 ]</span> The program
           </p>
           <div className="space-y-5">
@@ -139,7 +139,7 @@ export default async function ServiceDetailPage({
 
       {galleryByIndex.length > 0 ? (
         <section className="mx-auto w-full max-w-7xl px-5 pb-24 sm:px-10">
-          <p className="film-mono text-[11px] text-white/50">
+          <p className="film-mono text-[11px] text-muted">
             <span className="text-accent">[ 02 ]</span> On the floor
           </p>
           <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3">

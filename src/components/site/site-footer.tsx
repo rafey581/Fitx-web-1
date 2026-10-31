@@ -74,11 +74,9 @@ export async function SiteFooter() {
   ].filter(([, value]) => value) as Array<[string, string]>;
 
   return (
-    <footer className="film-footer relative mt-24 overflow-hidden">
+    <footer className="site-footer mt-24">
       <div className="mx-auto w-full max-w-7xl px-5 pt-20 pb-10 sm:px-10">
-        <p className="film-mono text-[11px] text-white/50">
-          <span className="text-accent">[ ∞ ]</span> Your move
-        </p>
+        <p className="tag">Your move</p>
         <Link href="/contact" className="group mt-6 block">
           <span className="film-display block type-cta leading-[0.9]">
             Start <span className="whitespace-nowrap text-accent">
@@ -181,6 +179,9 @@ export async function SiteFooter() {
           </Link>
         </div>
       </div>
+      <p aria-hidden="true" className="site-footer-wordmark -mb-[0.06em] px-4 text-center">
+        FITX
+      </p>
     </footer>
   );
 }

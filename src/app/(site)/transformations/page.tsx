@@ -12,7 +12,7 @@ export default function TransformationsPage() {
   const total = featuredTransformations.length + transformations.length;
   return (
     <main>
-      <section className="flex min-h-[64svh] items-end pt-36 pb-12">
+      <section className="page-hero flex min-h-[64svh] items-end pt-36 pb-12">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-10">
           <p className="eyebrow eyebrow-bar">Real results</p>
           <h1 className="film-display mt-5 type-hero">

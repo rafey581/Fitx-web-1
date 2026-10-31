@@ -47,7 +47,7 @@ export default function FaqPage() {
           ]),
         }}
       />
-      <section className="flex min-h-[52svh] items-end pt-36 pb-12">
+      <section className="page-hero flex min-h-[52svh] items-end pt-36 pb-12">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-10">
           <p className="eyebrow eyebrow-bar">FAQ</p>
           <h1 className="film-display mt-5 type-title">Questions about FITX Sahiwal</h1>
@@ -56,11 +56,11 @@ export default function FaqPage() {
           </p>
         </div>
       </section>
-      <div className="mx-auto w-full max-w-3xl space-y-14 px-5 pb-24 sm:px-10">
+      <div className="mx-auto w-full max-w-3xl space-y-14 px-5 pt-16 pb-24 sm:px-10">
         {groups.map((g) => (
           <section key={g.title}>
             <h2 className="heading-display text-2xl text-ink">{g.title}</h2>
-            <div className="mt-4 divide-y divide-white/10 border-y border-white/10">
+            <div className="mt-4 divide-y divide-black/10 border-y border-black/10">
               {g.items.map((f) => (
                 <details key={f.id} className="py-4">
                   <summary className="cursor-pointer list-none text-lg text-ink">{f.question}</summary>

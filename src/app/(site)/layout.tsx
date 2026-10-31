@@ -1,69 +1,46 @@
-import { JetBrains_Mono } from "next/font/google";
-
-import { MenuLocation } from "@/generated/prisma/enums";
-import { getMenuLinks, getSiteSettings } from "@/lib/site/settings";
 import { AIChatbot } from "@/components/chatbot/ai-chatbot";
-import { FilmShell, type ShellLink } from "@/components/site/film-shell";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { ScrollFx } from "@/components/v2/scroll-fx";
+import { SiteHeader } from "@/components/v2/site-header";
 import { studio } from "@/lib/fitx/knowledge";
 import { env } from "@/lib/env";
 import { gymJsonLd, jsonLd } from "@/lib/fitx/seo";
+import { getHeaderLinks } from "@/lib/site/nav";
+import { getSiteSettings } from "@/lib/site/settings";
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
-  display: "swap",
-});
+/** Split a settings phone field ("0322-… / 0300-…") into individual numbers. */
+const splitPhones = (value: string) => value.split(/[/·,|]/).map((n) => n.trim()).filter(Boolean);
 
 /**
- * Inner pages share the home film's world: a dark 3D backdrop, HUD header and
- * full-screen menu. The root layout owns <html>/<body>, theme CSS and SEO
- * defaults; this layout only adds the shell around the page content.
+ * Inner pages: floating header, dark page hero, light content and the dark
+ * footer. The root layout owns <html>/<body>, theme CSS and SEO defaults.
  */
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const settings = await getSiteSettings();
   const general = settings.general;
-  const header = await getMenuLinks(MenuLocation.HEADER);
-
-  const links: ShellLink[] = [
-    ...header.map((l) => ({
-      label: l.label,
-      href: l.href,
-      children: l.children.map((c) => ({ label: c.label, href: c.href })),
-    })),
-  ];
-  // Code-defined pages that the CMS menu doesn't know about.
-  for (const extra of [
-    { label: "Transformations", href: "/transformations" },
-    { label: "Blog", href: "/blog" },
-  ]) {
-    if (!links.some((l) => l.href === extra.href)) links.push({ ...extra, children: [] });
-  }
+  const links = await getHeaderLinks();
 
   // The studio as a local business, on every page (Google's map and knowledge panel).
   const structuredData = gymJsonLd(env.APP_URL, general);
 
   return (
-    <div className={`${monoFont.variable} film-root film-site w-full`}>
-      <FilmShell
+    <div className="site w-full">
+      <SiteHeader
         links={links}
         businessName={general.businessName}
-        address={general.address}
-        phone={general.phone}
+        address={general.address || studio.address}
+        phones={general.phone ? splitPhones(general.phone) : studio.phones}
         email={general.email}
       />
+      <ScrollFx />
 
-      <div id="main-content" className="relative z-10">
+      <div id="main-content" className="relative">
         {children}
         <SiteFooter />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
       <WhatsAppButton number={general.whatsapp || studio.whatsapp} />
       <AIChatbot />
     </div>

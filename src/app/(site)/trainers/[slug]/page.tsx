@@ -124,7 +124,7 @@ export default async function TrainerDetailPage({
 
   return (
     <main>
-      <section className="mx-auto grid min-h-[86svh] w-full max-w-7xl items-end gap-10 px-5 pt-32 pb-16 sm:px-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <section className="page-hero grid min-h-[86svh] items-end gap-10 px-5 pt-32 pb-16 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-16">
         <div>
           <Link href="/coaches" className="film-mono block w-fit text-[11px] text-white/50 transition hover:text-accent">
             ← All coaches
@@ -194,7 +194,7 @@ export default async function TrainerDetailPage({
       {profile?.quote || profile?.focus?.length || profile?.rightFor?.length ? (
         <section className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-10">
           {profile.quote ? (
-            <blockquote className="max-w-3xl border-l-2 border-accent pl-6 font-serif text-2xl leading-snug text-white/90 sm:text-3xl">
+            <blockquote className="max-w-3xl border-l-2 border-accent pl-6 font-serif text-2xl leading-snug text-ink sm:text-3xl">
               &ldquo;{profile.quote}&rdquo;
             </blockquote>
           ) : null}
@@ -209,7 +209,7 @@ export default async function TrainerDetailPage({
                   <p className="eyebrow">{list.title}</p>
                   <ul className="mt-4 space-y-3">
                     {list.items.map((item) => (
-                      <li key={item} className="flex gap-3 leading-relaxed text-white/80">
+                      <li key={item} className="flex gap-3 leading-relaxed text-ink/80">
                         <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         {item}
                       </li>
@@ -223,14 +223,14 @@ export default async function TrainerDetailPage({
 
       {classes.length > 0 ? (
         <section className="mx-auto w-full max-w-7xl px-5 pb-24 sm:px-10">
-          <p className="film-mono text-[11px] text-white/50">
+          <p className="film-mono text-[11px] text-muted">
             <span className="text-accent">[ 01 ]</span> Classes with {firstName}
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {classes.map((entry) => (
               <li key={entry.id} className="card card-hover p-5">
                 <p className="heading-display text-lg text-ink">{entry.title}</p>
-                <p className="film-mono mt-2 text-[10px] text-white/50">
+                <p className="film-mono mt-2 text-[10px] text-muted">
                   {DAY_NAMES[entry.dayOfWeek] ?? `Day ${entry.dayOfWeek}`} · {entry.startTime}–{entry.endTime}
                 </p>
               </li>

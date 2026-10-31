@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Inter, Montserrat, Playfair_Display } from "next/font/google";
+import { Barlow_Condensed, Inter, Montserrat, Playfair_Display } from "next/font/google";
 import { permanentRedirect, redirect } from "next/navigation";
 import Script from "next/script";
 
@@ -24,6 +24,14 @@ const headingFont = Montserrat({
 const bodyFont = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
+});
+
+/** Condensed athletic display face for the public site's headlines. */
+const displayFont = Barlow_Condensed({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -132,7 +140,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${headingFont.variable} ${bodyFont.variable} ${serifFont.variable} h-full`}
+      className={`${headingFont.variable} ${bodyFont.variable} ${serifFont.variable} ${displayFont.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
         <style dangerouslySetInnerHTML={{ __html: themeCss }} />
